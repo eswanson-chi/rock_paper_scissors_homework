@@ -1,0 +1,124 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">You played <%= @user_move %>.</h3>
+          </div>
+          <div class="panel-body">
+            <img src="/assets/images/<%= @user_move %>.png" class="img-responsive">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">The computer played <%= @computer_move %>.</h3>
+          </div>
+          <div class="panel-body">
+            <img src="/assets/images/<%= @computer_move %>.png" class="img-responsive">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well">
+          <h1 class="text-center"><%= @outcome %></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h5 class="panel-title">Summary</h5>
+      </div>
+
+      <table class="table table-hover table-striped">
+        <tr>
+          <th>When you played</th>
+          <th>you won</th>
+          <th>you lost</th>
+          <th>you tied</th>
+        </tr>
+
+        <tr>
+          <td>rock</td>
+          <td><%= @rock_wins %> </td>
+          <td><%= @rock_loses %> </td>
+          <td><%= @rock_ties %> </td>
+        </tr>
+
+        <tr>
+          <td>paper</td>
+          <td><%= @paper_wins %> </td>
+          <td><%= @paper_loses %> </td>
+          <td><%= @paper_ties %> </td>
+        </tr>
+
+        <tr>
+          <td>scissors</td>
+          <td><%= @scissors_wins %> </td>
+          <td><%= @scissors_loses %> </td>
+          <td><%= @scissors_ties %> </td>
+        </tr>
+
+        <tr>
+          <th>Total</th>
+          <td><%= @all_wins %> </td>
+          <td><%= @all_loses %> </td>
+          <td><%= @all_ties %> </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h5 class="panel-title">
+          Complete history
+          (<%= @all_count %>)
+        </h5>
+      </div>
+
+      <table class="table table-hover table-striped">
+        <tr>
+          <th>User Move</th>
+          <th>Computer Move</th>
+          <th>User Wins</th>
+          <th>Computer Wins</th>
+          <th>Tie</th>
+        </tr>
+
+         <% @all_moves.each do |tally| %>
+          <tr>
+            <td>
+              <%= tally.user_move %>
+            </td>
+
+            <td>
+              <%= tally.computer_move %>
+            </td>
+
+            <td>
+              <%= tally.user_wins %>
+            </td>
+
+            <td>
+              <%= tally.computer_wins %>
+            </td>
+
+            <td>
+              <%= tally.tie %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

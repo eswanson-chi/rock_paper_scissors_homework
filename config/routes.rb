@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   # Your code goes below.
 
+  get("/play/:user_move", { :controller => "game", :action => "play" })
+
 end
